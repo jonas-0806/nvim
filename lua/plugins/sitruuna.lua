@@ -1,0 +1,3 @@
+return {
+	"eemed/sitruuna.vim",
+}

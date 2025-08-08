@@ -1,0 +1,78 @@
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.wrap = false
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.signcolumn = "auto"
+vim.opt.termguicolors = true
+vim.opt.scrolloff = 9
+vim.opt.showmatch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Setup lazy.nvim
+require("lazy").setup({
+	spec = {
+		-- import your plugins
+		{ import = "plugins" },
+	},
+	-- Configure any other settings here. See the documentation for more details.
+	-- colorscheme that will be used when installing plugins.
+	install = { colorscheme = { "vague" } },
+	-- automatically check for plugin updates
+	checker = { enabled = false },
+})
+
+vim.cmd('colorscheme base16-onedark')
+
+-- keybinds
+vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true, desc = 'move to buffer to the left' })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true, desc = 'move to buffer to the right' })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true, desc = 'move to buffer above this' })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true, desc = 'move to buffer below this' })
+vim.keymap.set({ 'n', 'v' }, 'ø', '$', { noremap = true, silent = true, desc = 'move to end of line' })
+vim.keymap.set({ 'n', 'v' }, 'æ', '0', { noremap = true, silent = true, desc = 'move to beginning of line' })
+vim.keymap.set({ 'n', 'v' }, 'å', '%', { noremap = true, silent = true, desc = 'move to surrounding parentheses' })
+
+-- Define a custom highlight group for yank
+vim.api.nvim_set_hl(0, "YankHighlight", { bg = "#00e969", fg = "black" })
+
+-- Highlight on yank with custom color
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = vim.api.nvim_create_augroup("YankHighlightGroup", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank({ higroup = "YankHighlight", timeout = 200 })
+  end,
+})
+
+vim.keymap.set('n', '<leader>hq', '<cmd>nohl<CR>', { noremap = true, silent = true, desc = 'nohl' });
+
+-- zig
+vim.keymap.set('n', '<leader>zr', '<cmd>!zig build run<CR>', { noremap = true, silent = true, desc = 'zig build run' });
+vim.keymap.set('n', '<leader>zb', '<cmd>!zig build<CR>', { noremap = true, silent = true, desc = 'zig build' });
+
+-- zenmode
+vim.keymap.set('n', '<leader>zz', '<cmd>ZenMode<CR>', { noremap = true, silent = true, desc = 'zenmode' });
