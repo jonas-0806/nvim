@@ -71,9 +71,15 @@ vim.keymap.set('n', '<A-.>', '<C-w>>', { noremap = true, silent = true, desc = '
 vim.keymap.set({ 'n', 'v' }, 'ø', '$', { noremap = true, silent = true, desc = 'move to end of line' })
 vim.keymap.set({ 'n', 'v' }, 'æ', '0', { noremap = true, silent = true, desc = 'move to beginning of line' })
 vim.keymap.set({ 'n', 'v' }, 'å', '%', { noremap = true, silent = true, desc = 'move to surrounding parentheses' })
+
 -- multi indent on same visual selection
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
+
+-- lsp keybinds
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true, silent = true, desc='Goto definition' });
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true, silent = true, desc='Goto references' });
+vim.keymap.set('n', 'K', vim.lsp.buf.hover , { noremap = true, silent = true, desc='Hover' });
 
 
 -- Define a custom highlight group for yank
