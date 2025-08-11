@@ -5,6 +5,7 @@ return {
 		-- example using `opts` for defining servers
 		opts = {
 			servers = {
+				omnisharp = {},
 				lua_ls = {},
 				zls = {
 					settings = {
