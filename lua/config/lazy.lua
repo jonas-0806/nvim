@@ -46,22 +46,35 @@ require("lazy").setup({
 	checker = { enabled = false },
 })
 
+-- open help window in vertical split
+vim.o.splitright = true
+vim.cmd [[cabbrev h vert help]]
+
 vim.cmd('colorscheme base16-onedark')
 
--- keybinds
-vim.keymap.set('n', '<A-h>', '<C-w>h', { noremap = true, silent = true, desc = 'move to buffer to the left' })
-vim.keymap.set('n', '<A-l>', '<C-w>l', { noremap = true, silent = true, desc = 'move to buffer to the right' })
-vim.keymap.set('n', '<A-k>', '<C-w>k', { noremap = true, silent = true, desc = 'move to buffer above this' })
-vim.keymap.set('n', '<A-j>', '<C-w>j', { noremap = true, silent = true, desc = 'move to buffer below this' })
+-- window navigation and resizing
+vim.keymap.set('n', '<A-h>', '<C-w>h', { noremap = true, silent = true, desc = 'move to window to the left' })
+vim.keymap.set('n', '<A-l>', '<C-w>l', { noremap = true, silent = true, desc = 'move to window to the right' })
+vim.keymap.set('n', '<A-k>', '<C-w>k', { noremap = true, silent = true, desc = 'move to window above this' })
+vim.keymap.set('n', '<A-j>', '<C-w>j', { noremap = true, silent = true, desc = 'move to window below this' })
+vim.keymap.set('n', '<A-H>', '<C-w>H', { noremap = true, silent = true, desc = 'move window to the left' })
+vim.keymap.set('n', '<A-L>', '<C-w>L', { noremap = true, silent = true, desc = 'move window to the right' })
+vim.keymap.set('n', '<A-K>', '<C-w>K', { noremap = true, silent = true, desc = 'move window up' })
+vim.keymap.set('n', '<A-J>', '<C-w>J', { noremap = true, silent = true, desc = 'move window down' })
 vim.keymap.set('n', '<A-s>', '<C-w>s', { noremap = true, silent = true, desc = 'horizontal split' })
 vim.keymap.set('n', '<A-v>', '<C-w>v', { noremap = true, silent = true, desc = 'vertical split' })
 vim.keymap.set('n', '<A-+>', '<C-w>+', { noremap = true, silent = true, desc = 'increase height' })
 vim.keymap.set('n', '<A-->', '<C-w>-', { noremap = true, silent = true, desc = 'decrease height' })
-vim.keymap.set('n', '<A-<>', '<C-w><', { noremap = true, silent = true, desc = 'decrease width' })
-vim.keymap.set('n', '<A->>', '<C-w>>', { noremap = true, silent = true, desc = 'increase width' })
+vim.keymap.set('n', '<A-,>', '<C-w><', { noremap = true, silent = true, desc = 'decrease width' })
+vim.keymap.set('n', '<A-.>', '<C-w>>', { noremap = true, silent = true, desc = 'increase width' })
+
 vim.keymap.set({ 'n', 'v' }, 'ø', '$', { noremap = true, silent = true, desc = 'move to end of line' })
 vim.keymap.set({ 'n', 'v' }, 'æ', '0', { noremap = true, silent = true, desc = 'move to beginning of line' })
 vim.keymap.set({ 'n', 'v' }, 'å', '%', { noremap = true, silent = true, desc = 'move to surrounding parentheses' })
+-- multi indent on same visual selection
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv")
+
 
 -- Define a custom highlight group for yank
 vim.api.nvim_set_hl(0, "YankHighlight", { bg = "#00e969", fg = "black" })
