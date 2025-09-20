@@ -32,6 +32,27 @@ vim.opt.scrolloff = 9
 vim.opt.showmatch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.iskeyword:remove('(')
+vim.opt.iskeyword:remove(')')
+vim.opt.iskeyword:remove('[')
+vim.opt.iskeyword:remove(']')
+vim.opt.iskeyword:remove('{')
+vim.opt.iskeyword:remove('}')
+vim.opt.iskeyword:remove(';')
+vim.opt.iskeyword:remove(':')
+vim.opt.iskeyword:remove('-')
+vim.opt.iskeyword:remove('&')
+vim.opt.iskeyword:remove('%')
+vim.opt.iskeyword:remove('½')
+vim.opt.iskeyword:remove('!')
+vim.opt.iskeyword:remove('?')
+vim.opt.iskeyword:remove('|')
+vim.opt.iskeyword:remove('^')
+vim.opt.iskeyword:remove('.')
+vim.opt.iskeyword:remove(',')
+vim.opt.iskeyword:remove('.')
+vim.opt.iskeyword:remove('"')
+vim.opt.iskeyword:remove('\'')
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -81,6 +102,7 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true, silent = true, desc='Goto definition' });
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true, silent = true, desc='Goto references' });
 vim.keymap.set('n', 'K', vim.lsp.buf.hover , { noremap = true, silent = true, desc='Hover' });
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { noremap = true, silent = true, desc='Rename' });
 
 
 -- Define a custom highlight group for yank
