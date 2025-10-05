@@ -12,6 +12,9 @@ return {
 	-- build = 'cargo build --release',
 	-- If you use nix, you can build from source using latest nightly rust with:
 	-- build = 'nix run .#build-plugin',
+	term = {
+		enabled = true
+	},
 
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
@@ -36,13 +39,13 @@ return {
 			-- Adjusts spacing to ensure icons are aligned
 			nerd_font_variant = 'mono'
 		},
-
+		signature = { enabled = true },
 		completion = {
 			keyword = { range = 'full' },
 
 			-- Disable auto brackets
 			-- NOTE: some LSPs may add auto brackets themselves anyway
-			accept = { auto_brackets = { enabled = false }, },
+			accept = { auto_brackets = { enabled = true }, },
 
 			-- Don't select by default, auto insert on selection
 			list = { selection = { preselect = false, auto_insert = true } },

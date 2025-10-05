@@ -5,17 +5,23 @@ return {
 	opts = {
 	  label = {
         uppercase = false,
+		style = "overlay",
 		after = false,
 		before = true,
+		distance = false,
+		rainbow = {
+		  enabled = true,
+		  shade = 3,
+		},
 	  },
 	  highlight = {
         matches = false
 	  },
 	  search = {
-        case = "smart"
+        case = "smart",
+		mode="fuzzy"
 	  }
 	},
-	-- stylua: ignore
 	keys = {
 		{ "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
 		{ "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
