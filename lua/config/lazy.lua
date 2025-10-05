@@ -84,14 +84,14 @@ vim.keymap.set('n', '<A-K>', '<C-w>K', { noremap = true, silent = true, desc = '
 vim.keymap.set('n', '<A-J>', '<C-w>J', { noremap = true, silent = true, desc = 'move window down' })
 vim.keymap.set('n', '<A-s>', '<C-w>s', { noremap = true, silent = true, desc = 'horizontal split' })
 vim.keymap.set('n', '<A-v>', '<C-w>v', { noremap = true, silent = true, desc = 'vertical split' })
-vim.keymap.set('n', '<A-+>', '<C-w>+', { noremap = true, silent = true, desc = 'increase height' })
+vim.keymap.set('n', '<A-=>', '<C-w>+', { noremap = true, silent = true, desc = 'increase height' })
 vim.keymap.set('n', '<A-->', '<C-w>-', { noremap = true, silent = true, desc = 'decrease height' })
 vim.keymap.set('n', '<A-,>', '<C-w><', { noremap = true, silent = true, desc = 'decrease width' })
 vim.keymap.set('n', '<A-.>', '<C-w>>', { noremap = true, silent = true, desc = 'increase width' })
 
-vim.keymap.set({ 'n', 'v' }, 'ø', '$', { noremap = true, silent = true, desc = 'move to end of line' })
-vim.keymap.set({ 'n', 'v' }, 'æ', '0', { noremap = true, silent = true, desc = 'move to beginning of line' })
-vim.keymap.set({ 'n', 'v' }, 'å', '%', { noremap = true, silent = true, desc = 'move to surrounding parentheses' })
+vim.keymap.set({ 'n', 'v' }, '\'', '$', { noremap = true, silent = true, desc = 'move to end of line' })
+vim.keymap.set({ 'n', 'v' }, ';', '0', { noremap = true, silent = true, desc = 'move to beginning of line' })
+vim.keymap.set({ 'n', 'v' }, '[', '%', { noremap = true, silent = true, desc = 'move to surrounding parentheses' })
 vim.keymap.set('n', '<Esc>', '<cmd>noh<CR><Esc>', { noremap = true, silent = true })
 
 -- multi indent on same visual selection
@@ -121,6 +121,3 @@ vim.keymap.set('n', '<leader>hq', '<cmd>nohl<CR>', { noremap = true, silent = tr
 -- zig
 vim.keymap.set('n', '<leader>zr', '<cmd>!zig build run<CR>', { noremap = true, silent = true, desc = 'zig build run' });
 vim.keymap.set('n', '<leader>zb', '<cmd>!zig build<CR>', { noremap = true, silent = true, desc = 'zig build' });
-
--- zenmode
-vim.keymap.set('n', '<leader>zz', '<cmd>ZenMode<CR>', { noremap = true, silent = true, desc = 'zenmode' });
