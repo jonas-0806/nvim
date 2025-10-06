@@ -129,6 +129,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.keymap.set('n', '<leader>hq', '<cmd>nohl<CR>', { noremap = true, silent = true, desc = 'nohl' });
 
 -- zig
-vim.keymap.set('n', '<leader>zt', '<cmd>!zig build run<CR>', { noremap = true, silent = true, desc = 'zig build test' });
+vim.keymap.set('n', '<leader>zt', '<cmd>!zig build test<CR>', { noremap = true, silent = true, desc = 'zig build test' });
 vim.keymap.set('n', '<leader>zr', '<cmd>!zig build run<CR>', { noremap = true, silent = true, desc = 'zig build run' });
 vim.keymap.set('n', '<leader>zb', '<cmd>!zig build<CR>', { noremap = true, silent = true, desc = 'zig build' });
