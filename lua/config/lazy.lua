@@ -94,6 +94,16 @@ vim.keymap.set({ 'n', 'v' }, 'æ', '0', { noremap = true, silent = true, desc = 
 vim.keymap.set({ 'n', 'v' }, 'å', '%', { noremap = true, silent = true, desc = 'move to surrounding parentheses' })
 vim.keymap.set('n', '<Esc>', '<cmd>noh<CR><Esc>', { noremap = true, silent = true })
 
+-- uk/us layout versions of keymaps
+vim.keymap.set('n', '<A-=>', '<C-w>+', { noremap = true, silent = true, desc = 'increase height' })
+vim.keymap.set('n', '<A-->', '<C-w>-', { noremap = true, silent = true, desc = 'decrease height' })
+vim.keymap.set('n', '<A-,>', '<C-w><', { noremap = true, silent = true, desc = 'decrease width' })
+vim.keymap.set('n', '<A-.>', '<C-w>>', { noremap = true, silent = true, desc = 'increase width' })
+
+vim.keymap.set({ 'n', 'v' }, '\'', '$', { noremap = true, silent = true, desc = 'move to end of line' })
+vim.keymap.set({ 'n', 'v' }, ';', '0', { noremap = true, silent = true, desc = 'move to beginning of line' })
+vim.keymap.set({ 'n', 'v' }, '[', '%', { noremap = true, silent = true, desc = 'move to surrounding parentheses' })
+
 -- multi indent on same visual selection
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
@@ -122,6 +132,3 @@ vim.keymap.set('n', '<leader>hq', '<cmd>nohl<CR>', { noremap = true, silent = tr
 vim.keymap.set('n', '<leader>zt', '<cmd>!zig build run<CR>', { noremap = true, silent = true, desc = 'zig build test' });
 vim.keymap.set('n', '<leader>zr', '<cmd>!zig build run<CR>', { noremap = true, silent = true, desc = 'zig build run' });
 vim.keymap.set('n', '<leader>zb', '<cmd>!zig build<CR>', { noremap = true, silent = true, desc = 'zig build' });
-
--- zenmode
-vim.keymap.set('n', '<leader>zz', '<cmd>ZenMode<CR>', { noremap = true, silent = true, desc = 'zenmode' });
