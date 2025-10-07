@@ -9,10 +9,6 @@ return {
 		after = false,
 		before = true,
 		distance = false,
-		rainbow = {
-		  enabled = true,
-		  shade = 3,
-		},
 	  },
 	  highlight = {
         matches = false
