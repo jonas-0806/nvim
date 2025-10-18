@@ -14,8 +14,7 @@ return {
         matches = false
 	  },
 	  search = {
-        case = "smart",
-		mode="fuzzy"
+		mode="exact"
 	  }
 	},
 	keys = {
