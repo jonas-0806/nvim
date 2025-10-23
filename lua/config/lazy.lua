@@ -91,7 +91,7 @@ vim.keymap.set('n', '<A-.>', '<C-w>>', { noremap = true, silent = true, desc = '
 
 vim.keymap.set({ 'n', 'v' }, 'ø', '$', { noremap = true, silent = true, desc = 'move to end of line' })
 vim.keymap.set({ 'n', 'v' }, 'æ', '0', { noremap = true, silent = true, desc = 'move to beginning of line' })
-vim.keymap.set({ 'n', 'v' }, 'å', '%', { noremap = true, silent = true, desc = 'move to surrounding parentheses' })
+vim.keymap.set({ 'n', 'v' }, ',', '%', { noremap = true, silent = true, desc = 'move to surrounding parentheses' })
 vim.keymap.set('n', '<Esc>', '<cmd>noh<CR><Esc>', { noremap = true, silent = true })
 
 -- uk/us layout versions of keymaps
@@ -102,7 +102,7 @@ vim.keymap.set('n', '<A-.>', '<C-w>>', { noremap = true, silent = true, desc = '
 
 vim.keymap.set({ 'n', 'v' }, '\'', '$', { noremap = true, silent = true, desc = 'move to end of line' })
 vim.keymap.set({ 'n', 'v' }, ';', '0', { noremap = true, silent = true, desc = 'move to beginning of line' })
-vim.keymap.set({ 'n', 'v' }, '[', '%', { noremap = true, silent = true, desc = 'move to surrounding parentheses' })
+vim.keymap.set({ 'n', 'v' }, '#', '\'', { noremap = true, silent = true, desc = 'go to mark' })
 
 -- multi indent on same visual selection
 vim.keymap.set("v", ">", ">gv")
